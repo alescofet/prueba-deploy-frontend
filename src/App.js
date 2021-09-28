@@ -1,24 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route, Switch, Link } from 'react-router-dom';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import Profile from './components/Profile';
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div>
+      <Link to="/login">login</Link>
+      <Link to="/signup">signup</Link>
+      <Link to="/profile">profile</Link>
     </div>
+      <Switch>
+        <Route path="/login" exact component={(props) => (<Login {...props} />)} />
+        <Route path="/signup" render={props => (<Signup {...props} />)} />
+        <Route path="/profile" render={props => (<Profile {...props} />)} />
+
+      </Switch>
+
+
+      {/* <Alert
+        show={toast.show}
+        text={toast.text}
+        closeAlert={() => setToast({ ...toast, show: false })}
+      /> */}
+
+      {/* <Footer loggedUser={this.state.loggedUser} /> */}
+    </>
   );
 }
 
