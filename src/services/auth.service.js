@@ -4,7 +4,7 @@ class AuthService {
 
     constructor() {
         this.app = axios.create({
-            baseURL: 'https://prueba-deploy-back.herokuapp.com/sv/',
+            baseURL: 'https://prueba-deploy-back.herokuapp.com/sv',
             withCredentials: true
         })
         this.axios = axios

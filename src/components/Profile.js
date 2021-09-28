@@ -1,4 +1,4 @@
-import AuthService from '../services/auth.service';
+
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 
@@ -11,9 +11,14 @@ const Profile = () => {
         axios({
             method: "get",
             url: "https://prueba-deploy-back.herokuapp.com/sv/auth/logged-user",
-            withCredentials: true
+            withCredentials: true,
+            headers:{"Access-Control-Allow-Origin": "*"}
+            
         })
-            .then(response => setUser(response.data))
+            .then((response) => {
+                console.log(response.data);
+                setUser(response.data)
+            })
             .catch(err => console.log(err))
     }, [])
 

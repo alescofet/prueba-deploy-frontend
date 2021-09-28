@@ -16,7 +16,7 @@ function App() {
       <Link to="/profile">profile</Link>
     </div>
       <Switch>
-        <Route path="/login" exact component={(props) => (<Login {...props} />)} />
+        <Route path="/login" render={props => (<Login {...props} />)} />
         <Route path="/signup" render={props => (<Signup {...props} />)} />
         <Route path="/profile" render={props => (<Profile {...props} />)} />
 
